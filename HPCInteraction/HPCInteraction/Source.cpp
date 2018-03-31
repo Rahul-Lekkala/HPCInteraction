@@ -116,13 +116,13 @@ void detectEyes(cv::Mat &frame, cv::CascadeClassifier &faceCascade, cv::CascadeC
 		}
 		lastPoint = center;
 		int radius = (int)eyeball[2];
-		//cv::circle(frame, faces[0].tl() + eyeRect.tl() + center, radius, cv::Scalar(0, 0, 255), 2);
-		//cv::circle(eye, center, radius, cv::Scalar(255, 255, 255), 2);
+		cv::circle(frame, faces[0].tl() + eyeRect.tl() + center, radius, cv::Scalar(0, 0, 255), 2);
+		cv::circle(eye, center, radius, cv::Scalar(255, 255, 255), 2);
 	}
-	//cv::imshow("Eye", eye);
+	cv::imshow("Eye", eye);
 }
 
-/*void changeMouse(cv::Mat &frame, cv::Point &location)
+void changeMouse(cv::Mat &frame, cv::Point &location)
 {
 	if (location.x > frame.cols) location.x = frame.cols;
 	if (location.x < 0) location.x = 0;
@@ -130,17 +130,9 @@ void detectEyes(cv::Mat &frame, cv::CascadeClassifier &faceCascade, cv::CascadeC
 	if (location.y < 0) location.y = 0;
 	SetCursorPos(location.x, location.y);
 	cout << "(" << location.x << " , " << location.y << ")" << endl;
-	//gotoxy(location.x, location.y);
+	gotoxy(location.x, location.y);
 	//system(("xdotool mousemove_relative --sync " + std::to_string(location.x) + " " + std::to_string(location.y)).c_str());
-}//"xdotool mousemove "
-
- /*void gotoxy(int x, int y)
- {
-
- COORD coord = { x, y };
- SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
- }*/
-
+}
 int main()
 {
 	cv::CascadeClassifier faceCascade;
@@ -155,7 +147,7 @@ int main()
 		std::cerr << "Could not load eye detector." << std::endl;
 		return -1;
 	}
-	cv::VideoCapture cap(0);//"sample.mp4"); // the fist webcam connected to your PC
+	cv::VideoCapture cap(0); // the fist webcam connected to your PC
 	if (!cap.isOpened())
 	{
 		std::cerr << "Webcam not detected." << std::endl;
