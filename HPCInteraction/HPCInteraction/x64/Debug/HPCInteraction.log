@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\rahul\source\repos\hpcinteraction\hpcinteraction\source.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\rahul\source\repos\hpcinteraction\hpcinteraction\source.cpp(107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  HPCInteraction.vcxproj -> C:\Users\Rahul\source\repos\HPCInteraction\x64\Debug\HPCInteraction.exe
