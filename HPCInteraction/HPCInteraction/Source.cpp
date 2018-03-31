@@ -130,8 +130,6 @@ void changeMouse(cv::Mat &frame, cv::Point &location)
 	if (location.y < 0) location.y = 0;
 	SetCursorPos(location.x, location.y);
 	cout << "(" << location.x << " , " << location.y << ")" << endl;
-	gotoxy(location.x, location.y);
-	//system(("xdotool mousemove_relative --sync " + std::to_string(location.x) + " " + std::to_string(location.y)).c_str());
 }
 int main()
 {
@@ -160,7 +158,7 @@ int main()
 		cap >> frame; // outputs the webcam image to a Mat
 		if (!frame.data) break;
 		detectEyes(frame, faceCascade, eyeCascade);
-		//changeMouse(frame, mousePoint);
+		changeMouse(frame, mousePoint);
 		cv::imshow("Webcam", frame); // displays the Mat
 		if (cv::waitKey(30) >= 0) break;  // takes 30 frames per second. if the user presses any button, it stops from showing the webcam
 	}
